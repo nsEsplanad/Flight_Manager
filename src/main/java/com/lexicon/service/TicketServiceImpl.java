@@ -8,6 +8,11 @@ import java.util.List;
 
 public class TicketServiceImpl implements TicketService {
     private TicketDao ticketDao;
+
+    public TicketServiceImpl(TicketDao ticketDao) {
+        this.ticketDao = ticketDao;
+    }
+
     @Override
     public void createTicket(Integer id, Ticket ticket) {
         ticketDao.createTicket(id, ticket);

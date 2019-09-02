@@ -56,4 +56,13 @@ public class Seat {
             return new Seat(this);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "seatNumber=" + seatNumber +
+                ", tripClass=" + tripClass +
+                ", price=" + price +
+                '}';
+    }
 }

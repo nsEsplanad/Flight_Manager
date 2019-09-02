@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 public class FoodDaoImpl implements FoodDao {
     private Map<Integer, Food> foods=new HashMap<>();
-
     @Override
     public void createFood(Integer menuNO,Food food) {
         foods.put(menuNO,food);
@@ -25,6 +24,4 @@ public class FoodDaoImpl implements FoodDao {
                         .withFoodPrice(food.getFoodPrice()).withTripClass(food.getTripClass())
                         .build()).collect(Collectors.toList());
     }
-
-
 }

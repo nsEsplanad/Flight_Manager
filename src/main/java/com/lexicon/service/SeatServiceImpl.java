@@ -5,6 +5,8 @@ import com.lexicon.dao.SeatDaoImpl;
 import com.lexicon.domain.Seat;
 import com.lexicon.domain.TripClass;
 
+import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 
 public class SeatServiceImpl implements SeatService {
@@ -25,6 +27,6 @@ public class SeatServiceImpl implements SeatService {
 
     @Override
     public List<Seat> allSeats(TripClass tripClass) {
-        return seatDao.allSeats(tripClass);
+        return (List<Seat>) seatDao.allSeats(tripClass);
     }
 }
