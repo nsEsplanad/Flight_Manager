@@ -5,6 +5,9 @@ import java.util.Objects;
 public class Ticket {
     private String ticketId;
     private TripClass tripClass;
+    private Passenger passenger;
+    private Seat seat;
+    private Food food;
     private double cost;
 
     private Ticket(){
@@ -14,7 +17,10 @@ public class Ticket {
     private Ticket(Builder builder){
         this.ticketId=Objects.requireNonNull(builder.ticketId,"Ticket Id");
         this.tripClass= Objects.requireNonNull(builder.tripClass, "trip class");
-        this.cost=Objects.requireNonNull(builder.cost, "Total cost");
+        this.passenger=builder.passenger;
+        this.seat=builder.seat;
+        this.food=builder.food;
+        this.cost=builder.cost;
     }
 
     public String getTicketId() {
@@ -23,6 +29,18 @@ public class Ticket {
 
     public TripClass getTripClass() {
         return tripClass;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public Seat getSeat() {
+        return seat;
+    }
+
+    public Food getFood(){
+        return food;
     }
 
     public double getCost() {
@@ -36,6 +54,9 @@ public class Ticket {
     public static class Builder{
         private String ticketId;
         private TripClass tripClass;
+        private Passenger passenger;
+        private Seat seat;
+        private Food food;
         private double cost;
 
         public Builder withTicketId(String ticketId){
@@ -48,8 +69,21 @@ public class Ticket {
             return this;
         }
 
+        public Builder withPassenger(Passenger passenger){
+            this.passenger=passenger;
+            return this;
+        }
+        public Builder withSeat(Seat seat){
+            this.seat=seat;
+            return this;
+        }
+
         public Builder withCost(double cost){
             this.cost=cost;
+            return this;
+        }
+        public Builder withFood(Food food){
+            this.food=food;
             return this;
         }
 

@@ -7,7 +7,6 @@ public class Flight {
     private String source;
     private String destination;
     private Airplane airplane;
-    private TripClass tripClass;
 
     private Flight(){
 
@@ -18,7 +17,7 @@ public class Flight {
         this.source=Objects.requireNonNull(builder.source,"from");
         this.destination=Objects.requireNonNull(builder.destination," To");
         this.airplane=Objects.requireNonNull(builder.airplane," Airplane");
-        this.tripClass=Objects.requireNonNull(builder.tripClass, "Trip Class");
+
     }
     public String getFlightNumber() {
         return flightNumber;
@@ -36,9 +35,6 @@ public class Flight {
         return airplane;
     }
 
-    public TripClass getTripClass() {
-        return tripClass;
-    }
 
     public static Builder builder(){
         return new Builder();
@@ -49,7 +45,7 @@ public class Flight {
         private String source;
         private String destination;
         private Airplane airplane;
-        private TripClass tripClass;
+
 
         public Builder withFlightNumber(String flightNumber){
             this.flightNumber=flightNumber;
@@ -71,10 +67,6 @@ public class Flight {
             return this;
         }
 
-        public Builder withTripClass(TripClass tripClass){
-            this.tripClass=tripClass;
-            return this;
-        }
 
         public Flight build(){
             return new Flight(this);

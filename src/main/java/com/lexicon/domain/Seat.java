@@ -3,7 +3,7 @@ package com.lexicon.domain;
 import java.util.Objects;
 
 public class Seat {
-    private String seatNumber;
+    private int seatNumber;
     private TripClass tripClass;
     private double price;
 
@@ -12,11 +12,11 @@ public class Seat {
     }
 
     private Seat(Builder builder){
-        this.seatNumber= Objects.requireNonNull(builder.seatNumber, "seats Number");
+        this.seatNumber= builder.seatNumber;
         this.tripClass=builder.tripClass;
         this.price=Objects.requireNonNull(builder.price, "Price");
     }
-    public String getSeatNumber() {
+    public int getSeatNumber() {
         return seatNumber;
     }
 
@@ -32,12 +32,12 @@ public class Seat {
         return new Builder();
     }
 
-    public static final class Builder{
-        private String seatNumber;
+    public static class Builder {
+        private int seatNumber;
         private TripClass tripClass;
         private double price;
 
-        public Builder withSeatNumber(String seatNumber){
+        public Builder withSeatNumber(int seatNumber){
             this.seatNumber=seatNumber;
             return this;
         }

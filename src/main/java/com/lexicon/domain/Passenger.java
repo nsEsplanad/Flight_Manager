@@ -1,6 +1,9 @@
 package com.lexicon.domain;
 
+import java.util.Objects;
+
 public class Passenger {
+    private int passengerId;
     private String firstName;
     private String lastName;
 
@@ -9,8 +12,12 @@ public class Passenger {
     }
 
     public Passenger(Builder builder){
-        this.firstName=builder.firstName;
-        this.lastName=builder.lastName;
+        this.passengerId= Objects.requireNonNull(builder.passengerId, "passenger Id");
+        this.firstName=Objects.requireNonNull(builder.firstName, "firstName");
+        this.lastName=Objects.requireNonNull(builder.lastName, "LastName");
+    }
+    public int getPassengerId(){
+        return passengerId;
     }
     public String getFirstName() {
         return firstName;
@@ -25,9 +32,14 @@ public class Passenger {
     }
 
     public static class Builder{
+        private int passengerId;
         private String firstName;
         private String lastName;
 
+        public  Builder withPassengerId(int passengerId){
+            this.passengerId=passengerId;
+            return this;
+        }
         public  Builder withFirstName(String firstName){
             this.firstName=firstName;
             return this;

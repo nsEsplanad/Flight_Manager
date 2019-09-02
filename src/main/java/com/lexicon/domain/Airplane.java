@@ -3,6 +3,7 @@ package com.lexicon.domain;
 import java.util.Objects;
 
 public class Airplane {
+    private int airId;
     private String airlineName;
     private String  airplaneName;
 
@@ -13,6 +14,10 @@ public class Airplane {
     private Airplane(Builder builder){
         this.airlineName = Objects.requireNonNull(builder.airlineName, "airline");
         this.airplaneName=Objects.requireNonNull(builder.airplaneName, "airplane");
+        this.airId=Objects.requireNonNull(builder.airId, "Airplane id");
+    }
+    public int getAirId(){
+        return airId;
     }
     public String getAirlineName() {
         return airlineName;
@@ -27,9 +32,14 @@ public class Airplane {
         return new Builder();
     }
     public final static class Builder{
+        private int airId;
         private String airlineName;
         private String  airplaneName;
 
+        public Builder withAirId(int id){
+            this.airId=airId;
+            return this;
+        }
         public Builder withAirlineName(String airlineName){
             this.airlineName=airlineName;
             return this;
